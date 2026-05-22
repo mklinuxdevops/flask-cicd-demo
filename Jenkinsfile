@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        IMAGE_NAME = "mklinuxdevops/flask-cicd-demo"
+    }
+
     stages {
 
         stage('Clone') {
@@ -11,7 +15,26 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t flask-cicd-demo .'
+                sh 'docker build -t $IMAGE_NAME .'
+            }
+        }
+
+        stage('Docker Login') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+
+                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                sh 'docker push $IMAGE_NAME'
             }
         }
 
@@ -28,7 +51,7 @@ pipeline {
                 docker run -d \
                 --name flask-app \
                 -p 5000:5000 \
-                flask-cicd-demo
+                mklinuxdevops/flask-cicd-demo
                 '''
             }
         }
