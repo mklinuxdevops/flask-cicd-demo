@@ -8,7 +8,7 @@ def home():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>CI/CD Pipeline</title>
+        <title>New CI/CD Pipeline</title>
         <style>
             body {
                 margin: 0;
@@ -79,12 +79,12 @@ def home():
     <body>
         <div class="container">
 
-            <h1>🚀 CI/CD Pipeline</h1>
+            <h1>🚀 New CI/CD Pipeline Project</h1>
 
-            <h2>Flask Application Deployed Successfully</h2>
+            <h2>New Flask Application Deployed Successfully</h2>
 
             <p>
-                This application is running using:
+                This New application is running using:
             </p>
 
             <div class="pipeline">
@@ -92,11 +92,11 @@ def home():
             </div>
 
             <div class="badge">
-                ✅ Deployment Successful
+                ✅ Deployment Successful New
             </div>
 
             <div class="footer">
-                DevOps Pipeline by Manoj Kumar
+                DevOps Pipeline by Dracula
             </div>
 
         </div>
