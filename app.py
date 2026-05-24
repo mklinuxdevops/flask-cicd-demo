@@ -96,7 +96,7 @@ def home():
             </div>
 
             <div class="footer">
-                DevOps Pipeline by Dracula MK
+                DevOps Pipeline by Dracula EC2
             </div>
 
         </div>
